@@ -7,21 +7,23 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Server {
-
     private static final int DEFAULT_PORT = 8000;
     private ServerSocket serverSocket;
 
 
 
     public Server(){
-
+        listen();
     }
+
+
 
     private void listen(){
 
         try {
             serverSocket = new ServerSocket(DEFAULT_PORT);
 
+            serve(serverSocket);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -32,17 +34,19 @@ public class Server {
 
     private void serve(ServerSocket serverSocket){
 
-        ExecutorService fixedPool = Executors.newFixedThreadPool(1);
+        ExecutorService fixedPool = Executors.newFixedThreadPool(10);
         System.out.println("Waiting for client...");
-        try {
 
-            Socket clientSocket = serverSocket.accept();
+        while(true) {
+            try {
 
-            fixedPool.submit()
+                Socket clientSocket = serverSocket.accept();
 
-        } catch (IOException e) {
-            e.printStackTrace();
+                fixedPool.submit(new Dealer(clientSocket));
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
-
 }
