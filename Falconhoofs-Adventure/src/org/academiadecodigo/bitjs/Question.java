@@ -30,7 +30,8 @@ public class Question implements Runnable {
 
         socketWriter.println(" ");
         socketWriter.flush();
-        socketWriter.println(ServerMessage.WELCOME);
+        socketWriter.println(ServerMessage.TITLE);
+        socketWriter.println("\n" +ServerMessage.GRAVURE);
         socketWriter.flush();
         String[] options = {ServerMessage.START, ServerMessage.EXIT};
         MenuInputScanner scanner = new MenuInputScanner(options);
@@ -52,7 +53,7 @@ public class Question implements Runnable {
     }
 
     public void question1() {
-
+        socketWriter.println(ServerMessage.BEER);
         socketWriter.println(ServerMessage.Q1_INTRO);
         socketWriter.flush();
 
@@ -75,7 +76,8 @@ public class Question implements Runnable {
     }
 
     public void question2() {
-
+        socketWriter.println(ServerMessage.DRESS);
+        socketWriter.flush();
         socketWriter.println(ServerMessage.Q2_INTRO);
         socketWriter.flush();
 
@@ -98,7 +100,7 @@ public class Question implements Runnable {
     }
 
     public void question3() {
-
+        socketWriter.println(ServerMessage.LAKE);
         socketWriter.println(ServerMessage.Q3_INTRO);
         socketWriter.flush();
 
@@ -123,6 +125,7 @@ public class Question implements Runnable {
 
     public void question4() {
 
+        socketWriter.println(ServerMessage.SWORD);
         socketWriter.println(ServerMessage.Q4_INTRO);
         socketWriter.flush();
 
@@ -148,6 +151,7 @@ public class Question implements Runnable {
 
     public void question5() {
 
+        socketWriter.println(ServerMessage.FLOWER);
         socketWriter.println(ServerMessage.Q5_INTRO);
         socketWriter.flush();
 
@@ -171,7 +175,7 @@ public class Question implements Runnable {
     }
 
     public void question6() {
-
+        socketWriter.println(ServerMessage.ARC);
         socketWriter.println(ServerMessage.Q6_INTRO);
         socketWriter.flush();
 
