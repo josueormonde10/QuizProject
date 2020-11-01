@@ -28,10 +28,10 @@ public class Question implements Runnable {
 
     public void initMenu() {
 
-        socketWriter.println(" ");
+        socketWriter.println("\n\n");
         socketWriter.flush();
         socketWriter.println(ServerMessage.TITLE);
-        socketWriter.println("\n" +ServerMessage.GRAVURE);
+        socketWriter.println("\n" + ServerMessage.GRAVURE);
         socketWriter.flush();
         String[] options = {ServerMessage.START, ServerMessage.EXIT};
         MenuInputScanner scanner = new MenuInputScanner(options);
@@ -71,7 +71,7 @@ public class Question implements Runnable {
         if (question1Index == 2) {
             socketWriter.println(ServerMessage.Q1_WRONG_ANSWER);
             socketWriter.flush();
-            lose();
+            restart();
         }
     }
 
@@ -95,7 +95,7 @@ public class Question implements Runnable {
         if (question2Index == 2) {
             socketWriter.println(ServerMessage.Q2_WRONG_ANSWER);
             socketWriter.flush();
-            lose();
+            restart();
         }
     }
 
@@ -110,13 +110,13 @@ public class Question implements Runnable {
 
         int question3Index = prompt.getUserInput(scanner);
 
-        if (question3Index == 2){
+        if (question3Index == 2) {
 
             socketWriter.println(ServerMessage.Q3_RIGHT_ANSWER);
             socketWriter.flush();
             question4();
         }
-        if (question3Index == 1){
+        if (question3Index == 1) {
             socketWriter.println(ServerMessage.Q3_WRONG_ANSWER);
             socketWriter.flush();
             lose();
@@ -135,13 +135,13 @@ public class Question implements Runnable {
 
         int question4Index = prompt.getUserInput(scanner);
 
-        if (question4Index == 1){
+        if (question4Index == 2) {
 
             socketWriter.println(ServerMessage.Q4_RIGHT_ANSWER);
             socketWriter.flush();
             question5();
         }
-        if (question4Index == 2){
+        if (question4Index == 1) {
             socketWriter.println(ServerMessage.Q4_WRONG_ANSWER);
             socketWriter.flush();
             lose();
@@ -161,16 +161,17 @@ public class Question implements Runnable {
 
         int question5Index = prompt.getUserInput(scanner);
 
-        if (question5Index == 1){
+        if (question5Index == 1) {
 
             socketWriter.println(ServerMessage.Q5_RIGHT_ANSWER);
             socketWriter.flush();
             question6();
         }
-        if (question5Index == 2){
-            socketWriter.println(ServerMessage.Q5_WRONG_ANSWER);
+        if (question5Index == 2) {
+            socketWriter.println(ServerMessage.Q5_WRONG_ANSWER + "\n" + "Choose wisely next time.");
             socketWriter.flush();
-            lose();
+            restart();
+
         }
     }
 
@@ -185,16 +186,16 @@ public class Question implements Runnable {
 
         int question6Index = prompt.getUserInput(scanner);
 
-        if (question6Index == 1){
+        if (question6Index == 1) {
 
             socketWriter.println(ServerMessage.Q6_RIGHT_ANSWER);
             socketWriter.flush();
-            win();
+            restart();
         }
-        if (question6Index == 2){
+        if (question6Index == 2) {
             socketWriter.println(ServerMessage.Q6_WRONG_ANSWER);
             socketWriter.flush();
-            lose();
+            restart();
         }
     }
 
@@ -204,7 +205,7 @@ public class Question implements Runnable {
         restart();
     }
 
-    public void win(){
+    public void win() {
         socketWriter.println(ServerMessage.WIN);
         socketWriter.flush();
     }
@@ -230,6 +231,6 @@ public class Question implements Runnable {
 
     @Override
     public void run() {
-       start();
+        start();
     }
 }
