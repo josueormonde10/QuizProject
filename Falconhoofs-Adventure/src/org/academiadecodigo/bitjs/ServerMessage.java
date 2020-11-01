@@ -42,14 +42,14 @@ public class ServerMessage {
 
 
     //QUESTION1
-    public static final String BEER = "   _.._..,_,_\n" +
-            "  (          )\n" +
-            (ANSI_YELLOW + "   ]~,\"-.-~~[\n" + ANSI_RESET) +
-            (ANSI_YELLOW + " .=])' (;  ([\n" + ANSI_RESET) +
-            (ANSI_YELLOW + " | ]:: '    [\n" + ANSI_RESET) +
-            (ANSI_YELLOW + " '=]): .)  ([\n" + ANSI_RESET) +
-            (ANSI_YELLOW + "   |:: '    |\n" + ANSI_RESET) +
-            "   ~~----~~~~";
+    public static final String BEER = "                                 _.._..,_,_\n" +
+            "                                (          )\n" +
+            (ANSI_YELLOW + "                                 ]~,\"-.-~~[\n" + ANSI_RESET) +
+            (ANSI_YELLOW + "                               .=])' (;  ([\n" + ANSI_RESET) +
+            (ANSI_YELLOW + "                               | ]:: '    [\n" + ANSI_RESET) +
+            (ANSI_YELLOW + "                               '=]): .)  ([\n" + ANSI_RESET) +
+            (ANSI_YELLOW + "                                 |:: '    |\n" + ANSI_RESET) +
+            "                                 ~~----~~~~";
     public static final String Q1_INTRO = "You're in a Tavern, the ´Ye Old Hag´. \nAn old man approaches and tells you the legend of the golden cavern, which is filled with riches.\nBut also cautions you about the man eating troll that lives there.\nHe then turns to you and asks if you accept the quest.";
 
     public static final String Q1_OPTION1 = "Hell yeah!";
@@ -60,12 +60,12 @@ public class ServerMessage {
 
 
     //QUESTION2
-    public static final String DRESS = (ANSI_CYAN + "    ( \\./ )       \n" +ANSI_RESET)+
-            (ANSI_CYAN + "     \\ : /         \n" +ANSI_RESET) +
-            (ANSI_CYAN + "     ) : (     \n" +ANSI_RESET) +
-            (ANSI_CYAN + "    /  :  \\    \n" + ANSI_RESET) +
-            (ANSI_CYAN + "   /.......\\\n" + ANSI_RESET) +
-            (ANSI_CYAN + "  /………………………\\" + ANSI_RESET);
+    public static final String DRESS = (ANSI_CYAN + "                                  ( \\./ )       \n" +ANSI_RESET)+
+            (ANSI_CYAN + "                                   \\ : /         \n" +ANSI_RESET) +
+            (ANSI_CYAN + "                                   ) : (     \n" +ANSI_RESET) +
+            (ANSI_CYAN + "                                  /  :  \\    \n" + ANSI_RESET) +
+            (ANSI_CYAN + "                                 /.......\\\n" + ANSI_RESET) +
+            (ANSI_CYAN + "                                /………………………\\" + ANSI_RESET);
     public static final String Q2_INTRO = "\nYour first task is to find an adequate weapon. \nBut suddenly you hear a scream of a damsel in distress being pursued by wolves. \nYou want to help her, but you're also in a hurry. ";
 
     public static final String Q2_OPTION1 = "Help the damsel in distress";
@@ -75,11 +75,11 @@ public class ServerMessage {
     public static final String Q2_WRONG_ANSWER = (ANSI_CYAN+"\nYou let the poor women be mauled by the wolves. What's the matter with you?!"+ANSI_RESET);
 
     //QUESTION3
-    public static final String LAKE = (ANSI_BLUE+"________________________________\n" +ANSI_RESET) +
-            (ANSI_BLUE +" -          -         -       -  \n" + ANSI_RESET) +
-            (ANSI_BLUE + "      --                  --     \n" +ANSI_RESET) +
-            (ANSI_BLUE +"---            ---          ---    \n" + ANSI_RESET) +
-            (ANSI_BLUE + "     ----               ----   "+ANSI_RESET);
+    public static final String LAKE = (ANSI_BLUE+"                    ________________________________\n" +ANSI_RESET) +
+            (ANSI_BLUE +"                     -          -         -       -  \n" + ANSI_RESET) +
+            (ANSI_BLUE + "                          --                  --     \n" +ANSI_RESET) +
+            (ANSI_BLUE +"                    ---            ---          ---    \n" + ANSI_RESET) +
+            (ANSI_BLUE + "                         ----               ----   "+ANSI_RESET);
     public static final String Q3_INTRO = "You arrive at the said lake where you realize there's an island at the center. \nYou prepare yourself to for a swim but then you see a boat near the shore.";
 
     public static final String Q3_OPTION1 = "Go for a swim! It's hot and the island is not that far away...";
@@ -90,10 +90,10 @@ public class ServerMessage {
 
 
     //QUESTION4
-    public static final String SWORD = "       |                 \n" +
-            (ANSI_RED+"[======"+ANSI_RESET)+"|::::::::::::::>\n" +
-            "       |\n" +
-            "       ";
+    public static final String SWORD = "                                |                 \n" +
+            (ANSI_RED+"                         [======"+ANSI_RESET)+"|::::::::::::::>\n" +
+            "                                |\n" +
+            "                                ";
     public static final String Q4_INTRO = "While walking through a forest, you're engaged by a group of thieves. \nBoth you and them get into attack position.";
 
     public static final String Q4_OPTION1 = "Attack! Attack!";
@@ -103,18 +103,18 @@ public class ServerMessage {
     public static final String Q4_WRONG_ANSWER = (ANSI_CYAN+ "\nYou dumb ass! It's twelve against one! \nWhat do you think it was gonna happen?!"+ANSI_RESET);
 
     //QUESTION5
-    public static final String FLOWER = (ANSI_CYAN +"     __\n" + ANSI_RESET) +
-            (ANSI_CYAN + "  __/  \\__\n" + ANSI_RESET) +
-            (ANSI_CYAN +" /  \\"+ ANSI_YELLOW+ "__"+ANSI_CYAN+"/  \\"+ANSI_RESET+"\n") +
-            (ANSI_CYAN +" \\__"+ANSI_YELLOW+"/..\\"+ANSI_CYAN+"__/\n"+ANSI_RESET) +
-            (ANSI_CYAN +" /  "+ANSI_YELLOW+"\\__/"+ANSI_CYAN+"  \\\n"+ANSI_RESET) +
-            (ANSI_CYAN +" \\__/  \\__/\n" +ANSI_RESET) +
-            (ANSI_CYAN +"    \\__/\n"+ ANSI_RESET) +
-            (ANSI_GREEN + "     ||\n" + ANSI_RESET) +
-            (ANSI_GREEN + "     ||\n" + ANSI_RESET) +
-            (ANSI_GREEN +"     ||\n" + ANSI_RESET) +
-            (ANSI_GREEN + "  .'/.'\\.'.\n" + ANSI_RESET) +
-            (ANSI_GREEN + "..'.'..'..'.'." + ANSI_RESET);
+    public static final String FLOWER = (ANSI_CYAN +"                                   __\n" + ANSI_RESET) +
+            (ANSI_CYAN + "                                __/  \\__\n" + ANSI_RESET) +
+            (ANSI_CYAN +"                               /  \\"+ ANSI_YELLOW+ "__"+ANSI_CYAN+"/  \\"+ANSI_RESET+"\n") +
+            (ANSI_CYAN +"                               \\__"+ANSI_YELLOW+"/..\\"+ANSI_CYAN+"__/\n"+ANSI_RESET) +
+            (ANSI_CYAN +"                               /  "+ANSI_YELLOW+"\\__/"+ANSI_CYAN+"  \\\n"+ANSI_RESET) +
+            (ANSI_CYAN +"                               \\__/  \\__/\n" +ANSI_RESET) +
+            (ANSI_CYAN +"                                  \\__/\n"+ ANSI_RESET) +
+            (ANSI_GREEN + "                                   ||\n" + ANSI_RESET) +
+            (ANSI_GREEN + "                                   ||\n" + ANSI_RESET) +
+            (ANSI_GREEN +"                                   ||\n" + ANSI_RESET) +
+            (ANSI_GREEN + "                                .'/.'\\.'.\n" + ANSI_RESET) +
+            (ANSI_GREEN + "                              ..'.'..'..'.'." + ANSI_RESET);
     public static final String Q5_INTRO = "You walk into a swamp, which reeks of death. everything is ugly, tasteless... \nBut them your attention is dropped by a peculiar flower. \nYou come closer to the flower to investigate it.";
 
     public static final String Q5_OPTION1 = "Stomp the flower and continue the adventure.";
@@ -124,14 +124,14 @@ public class ServerMessage {
     public static final String Q5_WRONG_ANSWER = (ANSI_CYAN+"\nSorry, you don't have permission to do that in this magical beta. \nChoose wisely next time."+ANSI_RESET);
 
     //QUESTION6
-    public static final String ARC = "     __________\n" +
-            "    /\\____;;___\\\n" +
-            "   | /         /\n" +
-            "   `. "+(ANSI_YELLOW+"(******* "+ANSI_RESET+".\n") +
-            "    |\\"+(ANSI_YELLOW+"(%*******^"+ANSI_RESET+"\\\n") +
-            "   %| |-%-------|\n" +
-            "  % \\ | %  ))   |\n" +
-            "  %  \\|%________|";
+    public static final String ARC = "                                __________\n" +
+            "                               /\\____;;___\\\n" +
+            "                              | /         /\n" +
+            "                              `. "+(ANSI_YELLOW+"(******* "+ANSI_RESET+".\n") +
+            "                               |\\"+(ANSI_YELLOW+"(%*******^"+ANSI_RESET+"\\\n") +
+            "                              %| |-%-------|\n" +
+            "                             % \\ | %  ))   |\n" +
+            "                             %  \\|%________|";
     public static final String Q6_INTRO = "Finally you arrive at your destination! You start walking through the cavern, \nmile after mile, until you reach the end, but you don't see any gold, \nonly the old man. \nYou look confused while asking what is he doing there. \nThe old man replies by laughing maniakly and saying 'my dinner has arrived' while he transforms into a huge beast. \nHe is the troll!";
 
     public static final String Q6_OPTION1 = "Run out of the cavern, screaming like a little girl.";
