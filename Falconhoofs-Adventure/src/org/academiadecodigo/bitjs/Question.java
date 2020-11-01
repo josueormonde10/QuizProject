@@ -53,7 +53,11 @@ public class Question implements Runnable {
     }
 
     public void question1() {
+        socketWriter.println("");
+        socketWriter.println(ServerMessage.SEPARATOR1);
+        socketWriter.println("");
         socketWriter.println(ServerMessage.BEER);
+        socketWriter.println("");
         socketWriter.println(ServerMessage.Q1_INTRO);
         socketWriter.flush();
 
@@ -76,6 +80,9 @@ public class Question implements Runnable {
     }
 
     public void question2() {
+
+        socketWriter.println(ServerMessage.SEPARATOR2);
+        socketWriter.println("");
         socketWriter.println(ServerMessage.DRESS);
         socketWriter.flush();
         socketWriter.println(ServerMessage.Q2_INTRO);
@@ -100,7 +107,11 @@ public class Question implements Runnable {
     }
 
     public void question3() {
+
+        socketWriter.println(ServerMessage.SEPARATOR3);
+        socketWriter.println("");
         socketWriter.println(ServerMessage.LAKE);
+        socketWriter.println("");
         socketWriter.println(ServerMessage.Q3_INTRO);
         socketWriter.flush();
 
@@ -125,6 +136,9 @@ public class Question implements Runnable {
 
     public void question4() {
 
+        socketWriter.println(ServerMessage.SEPARATOR4);
+        socketWriter.println("");
+        socketWriter.println("");
         socketWriter.println(ServerMessage.SWORD);
         socketWriter.println(ServerMessage.Q4_INTRO);
         socketWriter.flush();
@@ -151,7 +165,10 @@ public class Question implements Runnable {
 
     public void question5() {
 
+        socketWriter.println(ServerMessage.SEPARATOR5);
+        socketWriter.println("");
         socketWriter.println(ServerMessage.FLOWER);
+        socketWriter.println("");
         socketWriter.println(ServerMessage.Q5_INTRO);
         socketWriter.flush();
 
@@ -168,7 +185,7 @@ public class Question implements Runnable {
             question6();
         }
         if (question5Index == 2) {
-            socketWriter.println(ServerMessage.Q5_WRONG_ANSWER + "\n" + "Choose wisely next time.");
+            socketWriter.println(ServerMessage.Q5_WRONG_ANSWER);
             socketWriter.flush();
             restart();
 
@@ -176,7 +193,11 @@ public class Question implements Runnable {
     }
 
     public void question6() {
+
+        socketWriter.println(ServerMessage.SEPARATOR6);
+        socketWriter.println("");
         socketWriter.println(ServerMessage.ARC);
+        socketWriter.println("");
         socketWriter.println(ServerMessage.Q6_INTRO);
         socketWriter.flush();
 
@@ -194,6 +215,8 @@ public class Question implements Runnable {
         }
         if (question6Index == 2) {
             socketWriter.println(ServerMessage.Q6_WRONG_ANSWER);
+            socketWriter.println(ServerMessage.SEPARATOR7);
+            socketWriter.println(ServerMessage.Q6_EPILOGUE);
             socketWriter.flush();
             restart();
         }

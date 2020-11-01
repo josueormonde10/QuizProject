@@ -30,7 +30,7 @@ public class Server {
 
     private void serve(ServerSocket serverSocket){
 
-        ExecutorService fixedPool = Executors.newFixedThreadPool(10);
+        ExecutorService fixedPool = Executors.newFixedThreadPool(2);
         System.out.println("Waiting for a Player...");
 
         while(true) {
