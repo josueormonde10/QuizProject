@@ -11,13 +11,8 @@ public class Server {
     private ServerSocket serverSocket;
 
 
-
-    public Server(){
+    public void start(){
         listen();
-    }
-
-    public static int getDefaultPort() {
-        return DEFAULT_PORT;
     }
 
     private void listen(){
@@ -36,14 +31,14 @@ public class Server {
     private void serve(ServerSocket serverSocket){
 
         ExecutorService fixedPool = Executors.newFixedThreadPool(10);
-        System.out.println("Waiting for client...");
+        System.out.println("Waiting for a Player...");
 
         while(true) {
             try {
 
                 Socket clientSocket = serverSocket.accept();
 
-                fixedPool.submit(new Dealer(clientSocket));
+                fixedPool.submit(new Question(clientSocket));
 
             } catch (IOException e) {
                 e.printStackTrace();

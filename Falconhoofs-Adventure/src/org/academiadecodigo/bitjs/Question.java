@@ -3,21 +3,24 @@ package org.academiadecodigo.bitjs;
 import org.academiadecodigo.bootcamp.Prompt;
 import org.academiadecodigo.bootcamp.scanners.menu.MenuInputScanner;
 
-public class Question {
+import java.io.IOException;
+import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.net.Socket;
+
+public class Question implements Runnable {
 
     Prompt prompt;
+    PrintWriter socketWriter;
+    Socket clientSocket;
 
-    public Question() {
-        prompt = new Prompt(System.in, System.out);
-
-    }
-
-    public static void main(String[] args) {
-
-        Question question = new Question();
-        question.start();
+    public Question(Socket clientSocket) throws IOException {
+        prompt = new Prompt(clientSocket.getInputStream(), new PrintStream(clientSocket.getOutputStream()));
+        socketWriter = new PrintWriter(clientSocket.getOutputStream());
+        this.clientSocket = clientSocket;
 
     }
+
 
     public void start() {
         initMenu();
@@ -25,8 +28,10 @@ public class Question {
 
     public void initMenu() {
 
-        System.out.println(" ");
-        System.out.println(ServerMessage.WELCOME);
+        socketWriter.println(" ");
+        socketWriter.flush();
+        socketWriter.println(ServerMessage.WELCOME);
+        socketWriter.flush();
         String[] options = {ServerMessage.START, ServerMessage.EXIT};
         MenuInputScanner scanner = new MenuInputScanner(options);
 
@@ -37,14 +42,19 @@ public class Question {
             question1();
         }
         if (menuIndex == 2) {
-            System.exit(0);
+            try {
+                clientSocket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
     }
 
     public void question1() {
 
-        System.out.println(ServerMessage.Q1_INTRO);
+        socketWriter.println(ServerMessage.Q1_INTRO);
+        socketWriter.flush();
 
         String[] options = {ServerMessage.Q1_OPTION1, ServerMessage.Q1_OPTION2};
         MenuInputScanner scanner = new MenuInputScanner(options);
@@ -53,18 +63,21 @@ public class Question {
         int question1Index = prompt.getUserInput(scanner);
 
         if (question1Index == 1) {
-            System.out.println(ServerMessage.Q1_RIGHT_ANSWER);
+            socketWriter.println(ServerMessage.Q1_RIGHT_ANSWER);
+            socketWriter.flush();
             question2();
         }
         if (question1Index == 2) {
-            System.out.println(ServerMessage.Q1_WRONG_ANSWER);
+            socketWriter.println(ServerMessage.Q1_WRONG_ANSWER);
+            socketWriter.flush();
             lose();
         }
     }
 
     public void question2() {
 
-        System.out.println(ServerMessage.Q2_INTRO);
+        socketWriter.println(ServerMessage.Q2_INTRO);
+        socketWriter.flush();
 
         String[] options = {ServerMessage.Q2_OPTION1, ServerMessage.Q2_OPTION2};
         MenuInputScanner scanner = new MenuInputScanner(options);
@@ -73,18 +86,21 @@ public class Question {
         int question2Index = prompt.getUserInput(scanner);
 
         if (question2Index == 1) {
-            System.out.println(ServerMessage.Q2_RIGHT_ANSWER);
+            socketWriter.println(ServerMessage.Q2_RIGHT_ANSWER);
+            socketWriter.flush();
             question3();
         }
         if (question2Index == 2) {
-            System.out.println(ServerMessage.Q2_WRONG_ANSWER);
+            socketWriter.println(ServerMessage.Q2_WRONG_ANSWER);
+            socketWriter.flush();
             lose();
         }
     }
 
     public void question3() {
 
-        System.out.println(ServerMessage.Q3_INTRO);
+        socketWriter.println(ServerMessage.Q3_INTRO);
+        socketWriter.flush();
 
         String[] options = {ServerMessage.Q3_OPTION1, ServerMessage.Q3_OPTION2};
         MenuInputScanner scanner = new MenuInputScanner(options);
@@ -94,18 +110,21 @@ public class Question {
 
         if (question3Index == 2){
 
-            System.out.println(ServerMessage.Q3_RIGHT_ANSWER);
+            socketWriter.println(ServerMessage.Q3_RIGHT_ANSWER);
+            socketWriter.flush();
             question4();
         }
         if (question3Index == 1){
-            System.out.println(ServerMessage.Q3_WRONG_ANSWER);
+            socketWriter.println(ServerMessage.Q3_WRONG_ANSWER);
+            socketWriter.flush();
             lose();
         }
     }
 
     public void question4() {
 
-        System.out.println(ServerMessage.Q4_INTRO);
+        socketWriter.println(ServerMessage.Q4_INTRO);
+        socketWriter.flush();
 
         String[] options = {ServerMessage.Q4_OPTION1, ServerMessage.Q4_OPTION2};
         MenuInputScanner scanner = new MenuInputScanner(options);
@@ -115,11 +134,13 @@ public class Question {
 
         if (question4Index == 1){
 
-            System.out.println(ServerMessage.Q4_RIGHT_ANSWER);
+            socketWriter.println(ServerMessage.Q4_RIGHT_ANSWER);
+            socketWriter.flush();
             question5();
         }
         if (question4Index == 2){
-            System.out.println(ServerMessage.Q4_WRONG_ANSWER);
+            socketWriter.println(ServerMessage.Q4_WRONG_ANSWER);
+            socketWriter.flush();
             lose();
         }
 
@@ -127,7 +148,8 @@ public class Question {
 
     public void question5() {
 
-        System.out.println(ServerMessage.Q5_INTRO);
+        socketWriter.println(ServerMessage.Q5_INTRO);
+        socketWriter.flush();
 
         String[] options = {ServerMessage.Q5_OPTION1, ServerMessage.Q5_OPTION2};
         MenuInputScanner scanner = new MenuInputScanner(options);
@@ -137,18 +159,21 @@ public class Question {
 
         if (question5Index == 1){
 
-            System.out.println(ServerMessage.Q5_RIGHT_ANSWER);
+            socketWriter.println(ServerMessage.Q5_RIGHT_ANSWER);
+            socketWriter.flush();
             question6();
         }
         if (question5Index == 2){
-            System.out.println(ServerMessage.Q5_WRONG_ANSWER);
+            socketWriter.println(ServerMessage.Q5_WRONG_ANSWER);
+            socketWriter.flush();
             lose();
         }
     }
 
     public void question6() {
 
-        System.out.println(ServerMessage.Q6_INTRO);
+        socketWriter.println(ServerMessage.Q6_INTRO);
+        socketWriter.flush();
 
         String[] options = {ServerMessage.Q6_OPTION1, ServerMessage.Q6_OPTION2};
         MenuInputScanner scanner = new MenuInputScanner(options);
@@ -158,21 +183,26 @@ public class Question {
 
         if (question6Index == 1){
 
-            System.out.println(ServerMessage.Q6_RIGHT_ANSWER);
+            socketWriter.println(ServerMessage.Q6_RIGHT_ANSWER);
+            socketWriter.flush();
             win();
         }
         if (question6Index == 2){
-            System.out.println(ServerMessage.Q6_WRONG_ANSWER);
+            socketWriter.println(ServerMessage.Q6_WRONG_ANSWER);
+            socketWriter.flush();
             lose();
         }
     }
 
     public void lose() {
+        socketWriter.println(ServerMessage.LOSE);
+        socketWriter.flush();
         restart();
     }
 
     public void win(){
-        System.out.println(ServerMessage.WIN);
+        socketWriter.println(ServerMessage.WIN);
+        socketWriter.flush();
     }
 
     public void restart() {
@@ -186,7 +216,16 @@ public class Question {
             initMenu();
         }
         if (answerIndex5 == 2) {
-            System.exit(0);
+            try {
+                clientSocket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+    }
+
+    @Override
+    public void run() {
+       start();
     }
 }
