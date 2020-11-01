@@ -16,13 +16,14 @@ public class Server {
         listen();
     }
 
-
+    public static int getDefaultPort() {
+        return DEFAULT_PORT;
+    }
 
     private void listen(){
 
         try {
             serverSocket = new ServerSocket(DEFAULT_PORT);
-
             serve(serverSocket);
 
         } catch (IOException e) {

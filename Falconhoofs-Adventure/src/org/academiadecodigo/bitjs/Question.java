@@ -4,8 +4,8 @@ import org.academiadecodigo.bootcamp.Prompt;
 import org.academiadecodigo.bootcamp.scanners.menu.MenuInputScanner;
 
 public class Question {
-    Prompt prompt;
 
+    Prompt prompt;
 
     public Question() {
         prompt = new Prompt(System.in, System.out);
@@ -92,12 +92,12 @@ public class Question {
 
         int question3Index = prompt.getUserInput(scanner);
 
-        if (question3Index == 1){
+        if (question3Index == 2){
 
             System.out.println(ServerMessage.Q3_RIGHT_ANSWER);
             question4();
         }
-        if (question3Index == 2){
+        if (question3Index == 1){
             System.out.println(ServerMessage.Q3_WRONG_ANSWER);
             lose();
         }
@@ -168,7 +168,6 @@ public class Question {
     }
 
     public void lose() {
-        System.out.println(ServerMessage.LOSE);
         restart();
     }
 

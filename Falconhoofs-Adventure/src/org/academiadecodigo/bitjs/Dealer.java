@@ -4,18 +4,17 @@ import java.io.*;
 import java.net.Socket;
 
 public class Dealer implements Runnable {
-
     private Socket clientSocket;
-
     private BufferedReader terminalInputReader;
     private BufferedWriter terminalOutputWriter;
+
 
 
     public Dealer(Socket clientSocket) {
         this.clientSocket = clientSocket;
     }
 
-    private void setupSocketStreams (){
+    private void setupSocketStreams() {
 
         try {
             terminalInputReader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
@@ -26,15 +25,15 @@ public class Dealer implements Runnable {
     }
 
 
+    private void dispatch() {
 
 
-    private void dispatch(){
 
         setupSocketStreams();
 
         String line = "";
 
-        while (!line.equals("/quit")){
+        while (!line.equals("/quit")) {
 
             try {
                 line = terminalInputReader.readLine();
@@ -44,7 +43,7 @@ public class Dealer implements Runnable {
                 //terminalOutputWriter.newLine();
                 terminalOutputWriter.flush();
 
-            }catch (IOException ex){
+            } catch (IOException ex) {
 
             }
         }
@@ -52,6 +51,7 @@ public class Dealer implements Runnable {
 
     @Override
     public void run() {
+
         System.out.println(Thread.currentThread().getName());
         dispatch();
     }
